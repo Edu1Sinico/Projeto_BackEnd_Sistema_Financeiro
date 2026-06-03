@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation;
 
-public class HttpResponseMapper
+public static class HttpResponseMapper
 {
     public static IActionResult createResponse<T>(Result<T> result, Controller controller)
     {

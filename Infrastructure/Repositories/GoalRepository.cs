@@ -7,21 +7,21 @@ namespace Infrastructure.Repositories;
 
 public class GoalRepository(Context context) : IGoalRepository
 {
-    public Task CreateGoalAsync(Goal goal)
+    public async Task CreateGoalAsync(Goal goal)
     {
         context.Goals.Add(goal);
         context.SaveChanges();
-        return Task.CompletedTask;
+        
     }
 
-    public Task DeleteGoalAsync(int goalId)
+    public async Task DeleteGoalAsync(int goalId)
     {
 
-        var goal = GetGoalAsync(goalId).Result;
+        var goal = await GetGoalAsync(goalId);
 
         context.Goals.Remove(goal);
         context.SaveChanges();
-        return Task.CompletedTask;
+        
     }
 
     public async Task<Goal?> GetGoalAsync(int goalId)

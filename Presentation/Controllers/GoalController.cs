@@ -1,39 +1,55 @@
+using Application.DTOs;
+using Application.UseCases.Goal;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers;
 
 [ApiController]
 [Route("goal")]
-public class GoalController : ControllerBase
+[Produces("application/json")]
+public class GoalController(
+    createGoal createGoal,
+    getGoal getGoal,
+    getGoals getGoals,
+    updateGoal updateGoal,
+    deleteGoal deleteGoal) : ControllerBase
 {
-    [HttpPost("")]
-    public IActionResult post()
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Post([FromBody] GoalCreateDTO dto)
     {
-        return HttpResponseMapper(,this); 
-    }
-    
-    [HttpGet("{id:int}")]
-    public IActionResult get()
-    {
-        return HttpResponseMapper(,this);
-    }
-    
-    [HttpGet]
-    public IActionResult list()
-    {
-        return HttpResponseMapper(,this);
-    }
-    
-    [HttpPut("{id:int}")]
-    public IActionResult update()
-    {
-        return;
-    }
-    
-    [HttpDelete("{id:int}")]
-    public IActionResult delete()
-    {
-        return HttpResponseMapper(,this);
+        return HttpResponseMapper.createResponse(await createGoal.create(dto), this);
     }
 
+    [HttpGet("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Get([FromRoute] int id)
+    {
+        return HttpResponseMapper.createResponse(await getGoal.getOne(id), this);
+    }
+
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> List([FromQuery] int userId)
+    {
+        return HttpResponseMapper.createResponse(await getGoals.getMany(userId), this);
+    }
+
+    [HttpPut("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Update([FromRoute] int id, [FromBody] GoalUpdateDTO dto)
+    {
+        return HttpResponseMapper.createResponse(await updateGoal.update(id, dto), this);
+    }
+
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Delete([FromRoute] int id)
+    {
+        return HttpResponseMapper.createResponse(await deleteGoal.delete(id), this);
+    }
 }

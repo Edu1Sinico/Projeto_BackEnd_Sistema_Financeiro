@@ -1,0 +1,9 @@
+using Domain;
+using Domain.Models;
+
+namespace Application.UseCases.GoalServices;
+
+public class deleteGoal(IGoalRepository repository)
+{
+    public async Result<> delete(){}
+}

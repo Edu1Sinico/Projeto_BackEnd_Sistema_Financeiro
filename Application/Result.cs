@@ -16,6 +16,12 @@ public class Result<T>
         this.code = code;
     }
 
+    private Result(bool isSuccess, int code)
+    {
+        this.isSuccess = isSuccess;
+        this.code = code;
+    }
+
     public bool isSuccess { get; set; }
     public T value { get; set; }
     public string error { get; set; }
@@ -31,5 +37,10 @@ public class Result<T>
     public static Result<T> Failure(string error, int code)
     {
         return new Result<T>(false, error, code);
+    }
+    
+    public static Result<T> NoContent()
+    {
+        return new Result<T>(true, 204);
     }
 }

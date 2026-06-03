@@ -6,27 +6,27 @@ namespace Infrastructure.Repositories;
 
 public class AccountRepository(Context context) : IAccountRepository
 {
-    public Task CreateAccountAsync(Account account)
+    public async Task CreateAccountAsync(Account account)
     {
-        context.Accounts.AddAsync(account);
+        await context.Accounts.AddAsync(account);
         context.SaveChanges();
-        return Task.CompletedTask;
+        
     }
 
-    public Task DeleteAccountAsync(int accountId)
+    public async Task DeleteAccountAsync(int accountId)
     {
-        var account = GetAccount(accountId).Result;
+        var account = await GetAccount(accountId);
         
         context.Accounts.Remove(account);
         context.SaveChanges();
-        return Task.CompletedTask;
+        
     }
 
-    public Task UpdateAccountAsync(Account account)
+    public async Task UpdateAccountAsync(Account account)
     {
         context.Update(account);
         context.SaveChanges();
-        return Task.CompletedTask;
+        
     }
 
     public async Task<Account?> GetAccount(int id)
