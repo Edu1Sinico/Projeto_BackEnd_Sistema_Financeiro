@@ -6,21 +6,21 @@ namespace Domain.Models;
 [Table("transaction")]
 public class Transaction
 {
-    public Transaction(int id, string description, decimal ammount, TransactionType type, DateOnly transactionDate, int accountId, string category)
+    public Transaction(int id, string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, string category)
     {
         this.id = id;
         this.description = description;
-        this.ammount = ammount;
+        this.amount = amount;
         this.type = type;
         this.transactionDate = transactionDate;
         this.accountId = accountId;
         this.category = category;
     }
 
-    public Transaction(string description, decimal ammount, TransactionType type, DateOnly transactionDate, int accountId, string category)
+    public Transaction(string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, string category)
     {
         this.description = description;
-        this.ammount = ammount;
+        this.amount = amount;
         this.type = type;
         this.transactionDate = transactionDate;
         this.accountId = accountId;
@@ -34,8 +34,8 @@ public class Transaction
     [Column("description")]
     public string description { get; set; }
 
-    [Column("ammount")]
-    public decimal ammount { get; set; }
+    [Column("amount")]
+    public decimal amount { get; set; }
 
     [Column("type")]
     public TransactionType type { get; set; }

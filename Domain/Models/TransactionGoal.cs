@@ -6,11 +6,11 @@ namespace Domain.Models;
 [Table("transaction_goal")]
 public class TransactionGoal
 {
-    public TransactionGoal(int transactionId, int goalId, decimal contributedAmmount)
+    public TransactionGoal(int transactionId, int goalId, decimal contributedAmount)
     {
         this.transactionId = transactionId;
         this.goalId = goalId;
-        this.contributedAmmount = contributedAmmount;
+        this.contributedAmount = contributedAmount;
     }
 
     // FK → Transaction (parte da PK composta)
@@ -28,6 +28,6 @@ public class TransactionGoal
     public Goal goal { get; set; } = null!;
 
     
-    [Column("contributedAmmount")]
-    public decimal contributedAmmount { get; set; }
+    [Column("contributedAmount")]
+    public decimal contributedAmount { get; set; }
 }

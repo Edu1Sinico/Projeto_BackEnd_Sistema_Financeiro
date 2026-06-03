@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/gabriel/RiderProjects/Domain/Infrastructure/Infrastructure.csproj": {}
+    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "/home/gabriel/RiderProjects/Domain/Domain/Domain.csproj": {
+    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gabriel/RiderProjects/Domain/Domain/Domain.csproj",
+        "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/home/gabriel/RiderProjects/Domain/Domain/Domain.csproj",
-        "packagesPath": "/home/gabriel/.nuget/packages/",
-        "outputPath": "/home/gabriel/RiderProjects/Domain/Domain/obj/",
+        "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/gabriel/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -39,10 +39,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
@@ -69,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.107/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -487,31 +488,31 @@
         }
       }
     },
-    "/home/gabriel/RiderProjects/Domain/Infrastructure/Infrastructure.csproj": {
+    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gabriel/RiderProjects/Domain/Infrastructure/Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "/home/gabriel/RiderProjects/Domain/Infrastructure/Infrastructure.csproj",
-        "packagesPath": "/home/gabriel/.nuget/packages/",
-        "outputPath": "/home/gabriel/RiderProjects/Domain/Infrastructure/obj/",
+        "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/gabriel/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "/home/gabriel/RiderProjects/Domain/Domain/Domain.csproj": {
-                "projectPath": "/home/gabriel/RiderProjects/Domain/Domain/Domain.csproj"
+              "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj"
               }
             }
           }
@@ -526,10 +527,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
@@ -572,7 +574,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.107/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
