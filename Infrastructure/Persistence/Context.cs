@@ -8,9 +8,10 @@ public class Context : DbContext
     
     public Context(DbContextOptions<Context> options) : base(options){}
 
-    DbSet<User> Users { get; set; }
-    DbSet<Account> Accounts { get; set; }
-    DbSet<Transaction> Transactions { get; set; }
-    DbSet<Goal> Goals { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Account> Accounts { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
+    public DbSet<TransactionGoal> TransactionGoals { get; set; }
+    public DbSet<Goal> Goals { get; set; }
 
 }

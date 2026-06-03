@@ -43,7 +43,21 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    
+    var context = services.GetRequiredService<Context>();
+        
+    context.Database.Migrate(); 
+        
+    
+    
+}
 
 if (app.Environment.IsDevelopment())
 {

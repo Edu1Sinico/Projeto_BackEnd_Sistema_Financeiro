@@ -1,5 +1,9 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Domain.Models;
 
+[Table("transaction")]
 public class Transaction
 {
     public Transaction(int id, string description, decimal ammount, TransactionType type, DateOnly transactionDate, int accountId, string category)
@@ -23,11 +27,32 @@ public class Transaction
         this.category = category;
     }
 
+    [Key]
+    [Column("id")]
     public int id { get; set; }
-    public string description{ get; set; }
-    public decimal ammount{ get; set; }
+
+    [Column("description")]
+    public string description { get; set; }
+
+    [Column("ammount")]
+    public decimal ammount { get; set; }
+
+    [Column("type")]
     public TransactionType type { get; set; }
-    public DateOnly transactionDate{ get; set; }
-    public int accountId{ get; set; }
-    public string category{ get; set; }
+
+    [Column("transactionDate")]
+    public DateOnly transactionDate { get; set; }
+
+    [Column("categoryId")]
+    public string category { get; set; }
+
+    // FK → Account
+    [Column("accountId")]
+    public int accountId { get; set; }
+
+    [ForeignKey(nameof(accountId))]
+    public Account account { get; set; } = null!;
+
+    // N:N → Goal (via tabela ponte TransactionGoal)
+    public virtual ICollection<TransactionGoal> transactionGoals { get; set; } = new List<TransactionGoal>();
 }
