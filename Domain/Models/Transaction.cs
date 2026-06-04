@@ -6,7 +6,7 @@ namespace Domain.Models;
 [Table("transaction")]
 public class Transaction
 {
-    public Transaction(int id, string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, string category)
+    public Transaction(int id, string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, Category category)
     {
         this.id = id;
         this.description = description;
@@ -17,7 +17,7 @@ public class Transaction
         this.category = category;
     }
 
-    public Transaction(string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, string category)
+    public Transaction(string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, Category category)
     {
         this.description = description;
         this.amount = amount;
@@ -43,8 +43,8 @@ public class Transaction
     [Column("transactionDate")]
     public DateOnly transactionDate { get; set; }
 
-    [Column("categoryId")]
-    public string category { get; set; }
+    [Column("category")]
+    public Category category { get; set; }
 
     // FK → Account
     [Column("accountId")]

@@ -1,9 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Application.DTOs
 {
-    public record UserUpdateDTO(string nome, string email);
+    public record UserUpdateDTO(
+        [Required]
+        [MinLength(3)]
+        [MaxLength(100)]
+        string name,
+        [Required]
+        [EmailAddress]
+        string email
+    );
 }
