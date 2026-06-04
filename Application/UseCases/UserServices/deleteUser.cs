@@ -7,7 +7,13 @@ public class deleteUser(IUserRepository repository)
 {
     public async Task<Result<User>> delete(int id)
     {
-        await repository.DeleteUserAsync(id);
+        var user = await repository.GetUserAsync(id);
+        if (user == null)
+        {
+            return Result<User>.Failure("Usuario não encontrado", 404);
+        }
+
+        await repository.DeleteUserAsync(user);
         return Result<User>.NoContent();
     }
 }

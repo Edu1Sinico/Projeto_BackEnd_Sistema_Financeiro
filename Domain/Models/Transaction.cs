@@ -29,6 +29,7 @@ public class Transaction
 
     [Key]
     [Column("id")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int id { get; set; }
 
     [Column("description")]

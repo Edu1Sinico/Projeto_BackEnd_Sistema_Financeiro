@@ -10,17 +10,15 @@ public class GoalRepository(Context context) : IGoalRepository
     public async Task CreateGoalAsync(Goal goal)
     {
         context.Goals.Add(goal);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
         
     }
 
-    public async Task DeleteGoalAsync(int goalId)
+    public async Task DeleteGoalAsync(Goal goal)
     {
 
-        var goal = await GetGoalAsync(goalId);
-
         context.Goals.Remove(goal);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
         
     }
 
@@ -36,9 +34,9 @@ public class GoalRepository(Context context) : IGoalRepository
     }
     
 
-    public Task UpdateGoalAsync(Goal goal)
+    public async Task UpdateGoalAsync(Goal goal)
     {
-        context.SaveChanges();
-        return Task.CompletedTask;
+        await context.SaveChangesAsync();
+        
     }
 }

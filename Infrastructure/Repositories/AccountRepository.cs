@@ -9,23 +9,22 @@ public class AccountRepository(Context context) : IAccountRepository
     public async Task CreateAccountAsync(Account account)
     {
         await context.Accounts.AddAsync(account);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
         
     }
 
-    public async Task DeleteAccountAsync(int accountId)
+    public async Task DeleteAccountAsync(Account account)
     {
-        var account = await GetAccount(accountId);
-        
+       
         context.Accounts.Remove(account);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
         
     }
 
     public async Task UpdateAccountAsync(Account account)
     {
         context.Update(account);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
         
     }
 

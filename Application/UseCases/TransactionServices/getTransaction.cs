@@ -5,5 +5,11 @@ namespace Application.UseCases.TransactionServices;
 
 public class getTransaction(ITransactionRepository repository)
 {
-    public async Result<> getOne(){}
+    public async Task<Result<Transaction>> getOne(int transactionId)
+    {
+        var transaction = await repository.GetTransactionAsync(transactionId);
+        if (transaction == null) { return Result<Transaction>.Failure("Transação não encontrada", 404); }
+
+        return Result<Transaction>.Success(transaction, 200);
+    }
 }

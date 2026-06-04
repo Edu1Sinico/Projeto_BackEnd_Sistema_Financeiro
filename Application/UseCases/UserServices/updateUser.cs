@@ -8,7 +8,7 @@ public class updateUser(IUserRepository repository)
 {
     public async Task<Result<User>> update(int id, UserUpdateDTO dto)
     {
-        var user = repository.GetUserAsync(id).Result;
+        var user = await repository.GetUserAsync(id);
         if (user == null)
         {
             return Result<User>.Failure("Usuario não encontrado", 404);

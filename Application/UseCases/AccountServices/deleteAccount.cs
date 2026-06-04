@@ -7,7 +7,10 @@ public class deleteAccount(IAccountRepository repository)
 {
     public async Task<Result<Account>> delete(int id)
     {
-        await repository.DeleteAccountAsync(id);
+        var account = await repository.GetAccount(id);
+        if (account == null) { return Result<Account>.Failure("Conta não encontrada", 404); }
+
+        await repository.DeleteAccountAsync(account);
         return Result<Account>.NoContent();
     }
 }

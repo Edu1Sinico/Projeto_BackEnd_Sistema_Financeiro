@@ -27,7 +27,7 @@
       "code": "NU1510",
       "level": "Warning",
       "message": "PackageReference Microsoft.AspNetCore.Authorization will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
-      "projectPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "/home/gabriel/RiderProjects/Domain/Infrastructure/Infrastructure.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
       "libraryId": "Microsoft.AspNetCore.Authorization",

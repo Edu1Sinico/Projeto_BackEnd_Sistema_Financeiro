@@ -7,21 +7,21 @@ namespace Infrastructure.Repositories;
 
 public class TransactionRepository(Context context) : ITransactionRepository
 {
-    public Task CreateTransactionAsync(Transaction transaction)
+    public async Task CreateTransactionAsync(Transaction transaction)
     {
-        context.Transactions.Add(transaction);
-        context.SaveChanges();
-        return Task.CompletedTask;
+        await context.Transactions.AddAsync(transaction);
+        await context.SaveChangesAsync();
+       
     }
 
-    public Task<Transaction?> GetTransactionAsync(int transactionId)
+    public async Task<Transaction?> GetTransactionAsync(int transactionId)
     {
         if (!context.Transactions.Any(t => t.id == transactionId))
         {
             return null;
         }
 
-        return Task.FromResult(context.Transactions.Find(transactionId));
+        return await context.Transactions.FindAsync(transactionId);
     }
 
     public async Task<List<Transaction>> GetTransactionsByDateAsync(int userId, DateOnly date)

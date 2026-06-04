@@ -7,31 +7,25 @@ namespace Infrastructure.Repositories;
 
 public class UserRepository(Context context) : IUserRepository
 {
-    public Task<bool> AuthenticateUser(string email, string password)
+    public async Task<bool> AuthenticateUser(string email, string password)
     {
-        if (!context.Users.Any(u => u.email == email && u.password == password))
-        {
-            return Task.FromResult(false);
-        }
-        
-        return Task.FromResult(true);
+        bool found = await context.Users.AnyAsync(u => u.email == email && u.password == password);
+
+        return found;
     }
 
-    public Task CreateUserAsync(User user)
+    public async Task CreateUserAsync(User user)
     {
-        context.Users.AddAsync(user);
-        context.SaveChanges();
-        return Task.CompletedTask;
+        await context.Users.AddAsync(user);
+        await context.SaveChangesAsync();
+        
     }
 
-    public Task DeleteUserAsync(int userId)
+    public async Task DeleteUserAsync(User user)
     {
-        var user = GetUserAsync(userId).Result;
-        
-        
         context.Users.Remove(user);
-        context.SaveChanges();
-        return Task.CompletedTask;
+        await context.SaveChangesAsync();
+        
     }
 
     public async Task<User?> GetUserAsync(int userId)
@@ -39,10 +33,10 @@ public class UserRepository(Context context) : IUserRepository
         return await context.Users.FindAsync(userId);
     }
 
-    public Task UpdateUserAsync(User user)
+    public async Task UpdateUserAsync(User user)
     {
         context.Users.Update(user);
-        context.SaveChanges();
-        return Task.CompletedTask;
+        await context.SaveChangesAsync();
+        
     }
 }
