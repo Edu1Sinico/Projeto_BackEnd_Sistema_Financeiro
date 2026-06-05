@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj": {}
+    "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj": {
+    "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Application\\obj\\",
+        "projectPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\B945\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\B945\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -27,11 +27,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj"
+              "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -495,17 +495,17 @@
         }
       }
     },
-    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
+    "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\B945\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\B945\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -979,17 +979,17 @@
         }
       }
     },
-    "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\sinic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\B945\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sinic\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\B945\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -1002,8 +1002,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj"
+              "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj"
               }
             }
           }
