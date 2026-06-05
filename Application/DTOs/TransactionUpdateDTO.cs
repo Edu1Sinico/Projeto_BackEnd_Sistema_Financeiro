@@ -8,13 +8,17 @@ namespace Application.DTOs
         [MinLength(3)]
         [MaxLength(255)]
         string description,
+
         [Required]
-        [Range(0,double.MaxValue)]
+        [Range(0.01, double.MaxValue)]
         decimal amount,
+
         [Required]
         TransactionType type,
+
         [Required]
         TransactionType category,
+        
         [Required]
         [Range(1,int.MaxValue)]
         int accountId
