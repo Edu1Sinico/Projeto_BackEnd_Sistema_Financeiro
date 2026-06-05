@@ -1,0 +1,9 @@
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.AssemblyInfo.cs
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\B945\Downloads\Projeto_BackEnd_Sistema_Financeiro\Infrastructure\obj\Debug\net10.0\Infrastructure.sourcelink.json
