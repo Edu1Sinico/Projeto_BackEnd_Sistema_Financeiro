@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ApSEIJv52+I=",
+  "dgSpecHash": "l5uzmw2AWNA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sinic\\OneDrive\\Desktop\\Códigos e Projetos\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\B945\\Downloads\\Projeto_BackEnd_Sistema_Financeiro\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sinic\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
-    "C:\\Users\\sinic\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "C:\\Users\\B945\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "C:\\Users\\B945\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
   ],
   "logs": []
 }

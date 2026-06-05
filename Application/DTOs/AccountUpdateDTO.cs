@@ -8,6 +8,7 @@ namespace Application.DTOs
         [MinLength(3)]
         [MaxLength(100)]
         string name,
+        
         [Required]
         AccountType type
     );

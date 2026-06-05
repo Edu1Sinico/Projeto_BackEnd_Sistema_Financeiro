@@ -1,23 +1,23 @@
 using System.ComponentModel.DataAnnotations;
-using Domain.Models;
 
 namespace Application.DTOs
 {
-    public record AccountCreateDTO(
+    public record GoalCreateDTO(
         [Required]
         [MinLength(3)]
         [MaxLength(100)]
-        string name,
-        
-        [Required]
-        [Range(0,double.MaxValue)]
-        decimal balance,
+        string title,
 
         [Required]
-        AccountType type,
+        [Range(0.01, double.MaxValue)]
+        decimal totalAmount,
+
+        [Required]
+        [Range(0.01, double.MaxValue)]
+        decimal currentAmount,
         
         [Required]
-        [Range(1,int.MaxValue)]
+        [Range(1, int.MaxValue)]
         int userId
     );
 }
