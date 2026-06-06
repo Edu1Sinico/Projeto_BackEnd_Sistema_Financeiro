@@ -1,5 +1,5 @@
 using Application.DTOs;
-using Application.UseCases.Goal;
+using Application.UseCases.GoalServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

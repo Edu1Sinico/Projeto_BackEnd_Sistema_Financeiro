@@ -14,7 +14,7 @@ public class updateUser(IUserRepository repository)
             return Result<User>.Failure("Usuario não encontrado", 404);
         }
         
-        user.name = dto.nome;
+        user.name = dto.name;
         user.email = dto.email;
         
         await repository.UpdateUserAsync(user);

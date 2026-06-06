@@ -1,5 +1,5 @@
 using Application.DTOs;
-using Application.UseCases.Transaction;
+using Application.UseCases.TransactionServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,7 +37,7 @@ public class TransactionController(
     [Authorize]
     public async Task<IActionResult> GetByDate([FromQuery] int userId, [FromQuery] DateOnly date)
     {
-        return HttpResponseMapper.createResponse(await getTransactionByDate.getOne(userId, date), this);
+        return HttpResponseMapper.createResponse(await getTransactionByDate.getByDate(userId, date), this);
     }
 
     [HttpGet("by-period")]
@@ -49,6 +49,6 @@ public class TransactionController(
         [FromQuery] DateOnly startDate,
         [FromQuery] DateOnly endDate)
     {
-        return HttpResponseMapper.createResponse(await getTransactionsByTimePeriod.getOne(userId, startDate, endDate), this);
+        return HttpResponseMapper.createResponse(await getTransactionsByTimePeriod.getByPeriod(userId, startDate, endDate), this);
     }
 }

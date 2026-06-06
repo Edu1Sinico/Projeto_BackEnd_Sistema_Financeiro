@@ -17,7 +17,7 @@ namespace Application.DTOs
         TransactionType type,
 
         [Required]
-        TransactionType category,
+        Category category,
         
         [Required]
         [Range(1,int.MaxValue)]

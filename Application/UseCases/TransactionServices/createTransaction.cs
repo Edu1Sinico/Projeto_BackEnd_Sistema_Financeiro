@@ -1,3 +1,4 @@
+using Application.DTOs;
 using Domain;
 using Domain.Models;
 
@@ -7,10 +8,11 @@ public class createTransaction(ITransactionRepository repository)
 {
     public async Task<Result<Transaction>> create(TransactionCreateDTO dto)
     {
-        var transaction = new Transaction(dto.description,
+        var transaction = new Transaction(
+            dto.description,
             dto.amount,
             dto.type,
-            dto.transactionDate,
+            DateOnly.FromDateTime(DateTime.UtcNow),
             dto.accountId,
             dto.category);
 

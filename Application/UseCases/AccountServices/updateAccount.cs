@@ -1,3 +1,4 @@
+using Application.DTOs;
 using Domain;
 using Domain.Models;
 
@@ -12,7 +13,6 @@ public class updateAccount(IAccountRepository repository)
         if (account == null) { return Result<Account>.Failure("Conta não encontrada", 404); }
                 
         account.name = dto.name;
-        account.balance = dto.balance;
         account.type = dto.type;
 
         await repository.UpdateAccountAsync(account);
