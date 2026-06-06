@@ -6,12 +6,13 @@ namespace Presentation;
 
 public static class HttpResponseMapper
 {
-    public static IActionResult createResponse<T>(Result<T> result, Controller controller)
+    public static IActionResult createResponse<T>(Result<T> result, ControllerBase controller)
     {
         return result.code switch
         {
             200 => controller.Ok(),
             201 => controller.Created(),
+            204 => controller.NoContent(),
             404 => controller.NotFound(),
             400 => controller.BadRequest(),
             401 => controller.Unauthorized(),

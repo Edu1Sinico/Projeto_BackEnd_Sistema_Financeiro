@@ -1,5 +1,6 @@
 using Application.DTOs;
 using Application.UseCases.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers;
@@ -15,6 +16,7 @@ public class AccountController(
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize]
     public async Task<IActionResult> Post([FromBody] AccountCreateDTO dto)
     {
         return HttpResponseMapper.createResponse(await createAccount.create(dto), this);
@@ -23,6 +25,7 @@ public class AccountController(
     [HttpPut("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] AccountUpdateDTO dto)
     {
         return HttpResponseMapper.createResponse(await updateAccount.update(id, dto), this);
@@ -31,6 +34,7 @@ public class AccountController(
     [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         return HttpResponseMapper.createResponse(await deleteAccount.delete(id), this);

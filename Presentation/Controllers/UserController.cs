@@ -1,5 +1,6 @@
 using Application.DTOs;
 using Application.UseCases.UserServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers;
@@ -18,6 +19,7 @@ public class UserController(
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
+    [AllowAnonymous]
     public async Task<IActionResult> Post([FromBody] UserCreateDTO dto)
     {
         return HttpResponseMapper.createResponse(await createUser.create(dto), this);
@@ -26,6 +28,7 @@ public class UserController(
     [HttpGet("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
         return HttpResponseMapper.createResponse(await getUser.getOne(id), this);
@@ -34,6 +37,7 @@ public class UserController(
     [HttpPut("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UserUpdateDTO dto)
     {
         return HttpResponseMapper.createResponse(await updateUser.update(id, dto), this);
@@ -42,6 +46,7 @@ public class UserController(
     [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         return HttpResponseMapper.createResponse(await deleteUser.delete(id), this);

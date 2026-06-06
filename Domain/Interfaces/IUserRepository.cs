@@ -4,7 +4,7 @@ namespace Domain;
 
 public interface IUserRepository
 {
-    Task <bool> AuthenticateUser(string email, string password);
+    Task <User?> AuthenticateUser(string email, string password);
     Task CreateUserAsync(User user);
     Task DeleteUserAsync(User user);
     Task<User?> GetUserAsync(int userId);

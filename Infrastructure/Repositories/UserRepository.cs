@@ -7,11 +7,11 @@ namespace Infrastructure.Repositories;
 
 public class UserRepository(Context context) : IUserRepository
 {
-    public async Task<bool> AuthenticateUser(string email, string password)
+    public async Task<User?> AuthenticateUser(string email, string password)
     {
-        bool found = await context.Users.AnyAsync(u => u.email == email && u.password == password);
+        var user = await context.Users.FirstOrDefaultAsync(u => u.email == email && u.password == password);
 
-        return found;
+        return user;
     }
 
     public async Task CreateUserAsync(User user)

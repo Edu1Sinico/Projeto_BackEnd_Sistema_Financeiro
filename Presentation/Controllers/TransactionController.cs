@@ -1,5 +1,6 @@
 using Application.DTOs;
 using Application.UseCases.Transaction;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers;
@@ -16,6 +17,7 @@ public class TransactionController(
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize]
     public async Task<IActionResult> Post([FromBody] TransactionCreateDTO dto)
     {
         return HttpResponseMapper.createResponse(await createTransaction.create(dto), this);
@@ -24,6 +26,7 @@ public class TransactionController(
     [HttpGet("{id:int}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [Authorize]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
         return HttpResponseMapper.createResponse(await getTransaction.getOne(id), this);
@@ -31,6 +34,7 @@ public class TransactionController(
 
     [HttpGet("by-date")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [Authorize]
     public async Task<IActionResult> GetByDate([FromQuery] int userId, [FromQuery] DateOnly date)
     {
         return HttpResponseMapper.createResponse(await getTransactionByDate.getOne(userId, date), this);
@@ -39,6 +43,7 @@ public class TransactionController(
     [HttpGet("by-period")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [Authorize]
     public async Task<IActionResult> GetByPeriod(
         [FromQuery] int userId,
         [FromQuery] DateOnly startDate,
