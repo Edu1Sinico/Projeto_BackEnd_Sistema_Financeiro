@@ -906,7 +906,6 @@
           "Application": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.8",
-          "Microsoft.AspNetCore.OpenApi": "10.0.7",
           "Microsoft.EntityFrameworkCore": "10.0.8",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.2"
         },
