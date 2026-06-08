@@ -23,11 +23,11 @@ public class Result<T>
     }
 
     public bool isSuccess { get; set; }
-    public T value { get; set; }
-    public string error { get; set; }
+    public T? value { get; set; }
+    public string? error { get; set; }
     public int code { get; set; }
     
-    
+    private Result() { }
 
     public static Result<T> Success(T value, int code)
     {
