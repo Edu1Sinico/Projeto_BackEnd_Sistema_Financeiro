@@ -10,17 +10,15 @@ public static class HttpResponseMapper
     {
         return result.code switch
         {
-            200 => controller.Ok(),
-            201 => controller.Created(),
+            200 => controller.Ok(result.value),
+            201 => controller.StatusCode(StatusCodes.Status201Created, result.value),
             204 => controller.NoContent(),
-            404 => controller.NotFound(),
-            400 => controller.BadRequest(),
+            400 => controller.BadRequest(result.error),
             401 => controller.Unauthorized(),
-            403 => controller.Forbid(),
-            409 => controller.Conflict(),
+            403 => controller.StatusCode(StatusCodes.Status403Forbidden, result.error),
+            404 => controller.NotFound(result.error),
+            409 => controller.Conflict(result.error),
             _ => controller.StatusCode(500)
-
         };
-
     }
 }

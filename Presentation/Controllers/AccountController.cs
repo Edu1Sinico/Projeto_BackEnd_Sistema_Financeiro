@@ -7,11 +7,7 @@ namespace Presentation.Controllers;
 
 [ApiController]
 [Route("account")]
-[Produces("application/json")]
-public class AccountController(
-    createAccount createAccount,
-    updateAccount updateAccount,
-    deleteAccount deleteAccount) : ControllerBase
+public class AccountController(createAccount createAccount, getAccount getAccount, getAccounts getAccounts, updateAccount updateAccount, deleteAccount deleteAccount) : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
@@ -19,7 +15,27 @@ public class AccountController(
     [Authorize]
     public async Task<IActionResult> Post([FromBody] AccountCreateDTO dto)
     {
-        return HttpResponseMapper.createResponse(await createAccount.create(dto), this);
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await createAccount.create(dto, userId.Value), this);
+    }
+
+    [HttpGet("{id:int}")]
+    [Authorize]
+    public async Task<IActionResult> Get([FromRoute] int id)
+    {
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await getAccount.getOne(id, userId.Value), this);
+    }
+
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> List([FromQuery] int userId)
+    {
+        var authenticatedUserId = CurrentUser.GetId(this);
+        if (authenticatedUserId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await getAccounts.getMany(userId, authenticatedUserId.Value), this);
     }
 
     [HttpPut("{id:int}")]
@@ -28,7 +44,9 @@ public class AccountController(
     [Authorize]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] AccountUpdateDTO dto)
     {
-        return HttpResponseMapper.createResponse(await updateAccount.update(id, dto), this);
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await updateAccount.update(id, dto, userId.Value), this);
     }
 
     [HttpDelete("{id:int}")]
@@ -37,6 +55,8 @@ public class AccountController(
     [Authorize]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        return HttpResponseMapper.createResponse(await deleteAccount.delete(id), this);
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await deleteAccount.delete(id, userId.Value), this);
     }
 }

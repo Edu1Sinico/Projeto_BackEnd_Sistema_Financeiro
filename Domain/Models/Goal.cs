@@ -6,21 +6,14 @@ namespace Domain.Models;
 [Table("goal")]
 public class Goal
 {
-    public Goal(int id, string title, decimal totalAmount, decimal currentAmount, int userId)
-    {
-        this.id = id;
-        this.title = title;
-        this.totalAmount = totalAmount;
-        this.currentAmount = currentAmount;
-        this.userId = userId;
-    }
-
-    public Goal(string title, decimal totalAmount, decimal currentAmount, int userId)
+    public Goal(string title, decimal totalAmount, decimal currentAmount, int userId, DateOnly? deadline = null)
     {
         this.title = title;
         this.totalAmount = totalAmount;
         this.currentAmount = currentAmount;
         this.userId = userId;
+        this.deadline = deadline;
+        this.completed = currentAmount >= totalAmount;
     }
 
     [Key]
@@ -37,7 +30,15 @@ public class Goal
     [Column("currentAmount")]
     public decimal currentAmount { get; set; }
 
-    // FK → User
+    [Column("deadline")]
+    public DateOnly? deadline { get; set; }
+
+    [Column("completed")]
+    public bool completed { get; set; }
+
+    [NotMapped]
+    public decimal progressPercentage => totalAmount <= 0 ? 0 : Math.Min(100, currentAmount / totalAmount * 100);
+
     [Column("userId")]
     public int userId { get; set; }
 

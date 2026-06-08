@@ -1,4 +1,3 @@
-
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -9,54 +8,26 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Infrastructure;
 
-public class TokenService(JwtSecurityTokenHandler handler,Context context, HashingServices hashServices, IOptions<SecuritySettings> options)
-
-
+public class TokenService(JwtSecurityTokenHandler handler, IOptions<SecuritySettings> options)
 {
     public Result<string> generateToken(User user)
     {
-        var securitySettings = options.Value;
-        
-        var keyBytes = Encoding.ASCII.GetBytes(securitySettings.jwtSecretKey);
-
-        var credentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes),
-            SecurityAlgorithms.HmacSha256Signature);
-
-     
-     
-     
-        var tokenDescriptor = new SecurityTokenDescriptor
+        var keyBytes = Encoding.ASCII.GetBytes(options.Value.jwtSecretKey);
+        var descriptor = new SecurityTokenDescriptor
         {
             Subject = GenerateClaims(user),
             Expires = DateTime.UtcNow.AddHours(2),
-            SigningCredentials = credentials,
-            
-        
-        
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
         };
-
-
-        var token = handler.CreateToken(tokenDescriptor);
-
-        return Result<string>.Success(handler.WriteToken(token),200);
+        return Result<string>.Success(handler.WriteToken(handler.CreateToken(descriptor)), 200);
     }
-    
-    
 
-
-    
-
-    public static ClaimsIdentity GenerateClaims(User user)
+    private static ClaimsIdentity GenerateClaims(User user)
     {
-        var claimsIdentity = new ClaimsIdentity();
-        
-        claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.id.ToString())); // o mais importante
-        claimsIdentity.AddClaim(new Claim(ClaimTypes.Email, user.email));
-        claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, user.name));
-        claimsIdentity.AddClaim(new Claim("createdAt", user.creationDate.ToString()));
-        return claimsIdentity;
-
+        var claims = new ClaimsIdentity();
+        claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.id.ToString()));
+        claims.AddClaim(new Claim(ClaimTypes.Email, user.email));
+        claims.AddClaim(new Claim(ClaimTypes.Name, user.name));
+        return claims;
     }
-
-
 }

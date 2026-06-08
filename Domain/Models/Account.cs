@@ -6,15 +6,6 @@ namespace Domain.Models;
 [Table("account")]
 public class Account
 {
-    public Account(int id, string name, decimal balance, AccountType type, int userId)
-    {
-        this.id = id;
-        this.name = name;
-        this.balance = balance;
-        this.type = type;
-        this.userId = userId;
-    }
-
     public Account(string name, decimal balance, AccountType type, int userId)
     {
         this.name = name;
@@ -44,6 +35,5 @@ public class Account
     [ForeignKey(nameof(userId))]
     public User user { get; set; } = null!;
 
-    // 1:N — uma conta possui várias transações
     public virtual ICollection<Transaction> transactions { get; set; } = new List<Transaction>();
 }

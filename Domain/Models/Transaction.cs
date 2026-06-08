@@ -6,26 +6,17 @@ namespace Domain.Models;
 [Table("transaction")]
 public class Transaction
 {
-    public Transaction(int id, string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, Category category)
+    public Transaction(string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, int categoryId)
     {
-        this.id = id;
         this.description = description;
         this.amount = amount;
         this.type = type;
         this.transactionDate = transactionDate;
         this.accountId = accountId;
-        this.category = category;
+        this.categoryId = categoryId;
+        
     }
 
-    public Transaction(string description, decimal amount, TransactionType type, DateOnly transactionDate, int accountId, Category category)
-    {
-        this.description = description;
-        this.amount = amount;
-        this.type = type;
-        this.transactionDate = transactionDate;
-        this.accountId = accountId;
-        this.category = category;
-    }
 
     [Key]
     [Column("id")]
@@ -44,16 +35,17 @@ public class Transaction
     [Column("transactionDate")]
     public DateOnly transactionDate { get; set; }
 
-    [Column("category")]
-    public Category category { get; set; }
-
-    // FK → Account
     [Column("accountId")]
     public int accountId { get; set; }
 
     [ForeignKey(nameof(accountId))]
     public Account account { get; set; } = null!;
 
+    [Column("categoryId")]
+    public int categoryId { get; set; }
+
+    [ForeignKey(nameof(categoryId))]
+    public Category category { get; set; } = null!;
     // N:N → Goal (via tabela ponte TransactionGoal)
     public virtual ICollection<TransactionGoal> transactionGoals { get; set; } = new List<TransactionGoal>();
 }

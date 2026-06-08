@@ -7,13 +7,7 @@ namespace Presentation.Controllers;
 
 [ApiController]
 [Route("goal")]
-[Produces("application/json")]
-public class GoalController(
-    createGoal createGoal,
-    getGoal getGoal,
-    getGoals getGoals,
-    updateGoal updateGoal,
-    deleteGoal deleteGoal) : ControllerBase
+public class GoalController(createGoal createGoal, getGoal getGoal, getGoals getGoals, updateGoal updateGoal, deleteGoal deleteGoal) : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
@@ -21,7 +15,9 @@ public class GoalController(
     [Authorize]
     public async Task<IActionResult> Post([FromBody] GoalCreateDTO dto)
     {
-        return HttpResponseMapper.createResponse(await createGoal.create(dto), this);
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await createGoal.create(dto, userId.Value), this);
     }
 
     [HttpGet("{id:int}")]
@@ -30,7 +26,9 @@ public class GoalController(
     [Authorize]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        return HttpResponseMapper.createResponse(await getGoal.getOne(id), this);
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await getGoal.getOne(id, userId.Value), this);
     }
 
     [HttpGet]
@@ -38,7 +36,9 @@ public class GoalController(
     [Authorize]
     public async Task<IActionResult> List([FromQuery] int userId)
     {
-        return HttpResponseMapper.createResponse(await getGoals.getMany(userId), this);
+        var authenticatedUserId = CurrentUser.GetId(this);
+        if (authenticatedUserId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await getGoals.getMany(userId, authenticatedUserId.Value), this);
     }
 
     [HttpPut("{id:int}")]
@@ -47,7 +47,9 @@ public class GoalController(
     [Authorize]
     public async Task<IActionResult> Update([FromRoute] int id, [FromBody] GoalUpdateDTO dto)
     {
-        return HttpResponseMapper.createResponse(await updateGoal.update(id, dto), this);
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await updateGoal.update(id, dto, userId.Value), this);
     }
 
     [HttpDelete("{id:int}")]
@@ -56,6 +58,8 @@ public class GoalController(
     [Authorize]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        return HttpResponseMapper.createResponse(await deleteGoal.delete(id), this);
+        var userId = CurrentUser.GetId(this);
+        if (userId == null) return Unauthorized();
+        return HttpResponseMapper.createResponse(await deleteGoal.delete(id, userId.Value), this);
     }
 }

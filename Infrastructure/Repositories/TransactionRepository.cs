@@ -7,31 +7,28 @@ namespace Infrastructure.Repositories;
 
 public class TransactionRepository(Context context) : ITransactionRepository
 {
+    public Task<Transaction?> GetTransactionAsync(int transactionId) => context.Transactions.FindAsync(transactionId).AsTask();
+    public Task<List<Transaction>> GetTransactionsByDateAsync(int userId, DateOnly date) =>
+        context.Transactions.Where(t => t.account.userId == userId && t.transactionDate == date).ToListAsync();
+    public Task<List<Transaction>> GetTransactionsByTimePeriodAsync(int userId, DateOnly startDate, DateOnly endDate) =>
+        context.Transactions.Where(t => t.account.userId == userId && t.transactionDate >= startDate && t.transactionDate <= endDate).ToListAsync();
+
     public async Task CreateTransactionAsync(Transaction transaction)
     {
         await context.Transactions.AddAsync(transaction);
         await context.SaveChangesAsync();
-       
     }
 
-    public async Task<Transaction?> GetTransactionAsync(int transactionId)
+    public async Task UpdateTransactionAsync(Transaction transaction)
     {
-        if (!context.Transactions.Any(t => t.id == transactionId))
-        {
-            return null;
-        }
-
-        return await context.Transactions.FindAsync(transactionId);
+        context.Transactions.Update(transaction);
+        await context.SaveChangesAsync();
     }
 
-    public async Task<List<Transaction>> GetTransactionsByDateAsync(int userId, DateOnly date)
+    public async Task DeleteTransactionAsync(Transaction transaction)
     {
-
-
-        return await context.Accounts.Where(a => a.userId == userId)
-            .SelectMany(a => a.transactions
-                .Where(t => t.transactionDate == date)).ToListAsync();
-                
+        context.Transactions.Remove(transaction);
+        await context.SaveChangesAsync();
     }
 
     public async Task<List<Transaction>> GetTransactionsByTimePeriodAsync(int userId, DateOnly startDate,

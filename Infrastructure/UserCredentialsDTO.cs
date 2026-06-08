@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Application.DTOs;
+namespace Infrastructure;
 
-public record UserCredentialsDTO([Required(AllowEmptyStrings = false)]string email, [Required(AllowEmptyStrings = false)]string password);
+public record UserCredentialsDTO([Required, EmailAddress] string email, [Required] string password);
