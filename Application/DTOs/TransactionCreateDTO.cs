@@ -16,16 +16,14 @@ namespace Application.DTOs
         [Required]
         TransactionType type,
 
-        [Required]
-        Category category,
         
         [Required]
         [Range(1,int.MaxValue)]
         int accountId,
     
-    [Required]
-    [Range(1,int.MaxValue)]
-    int categoryId
+        [Required]
+        [Range(1,int.MaxValue)]
+        int categoryId
 
         
         );

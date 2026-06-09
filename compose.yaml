@@ -1,6 +1,6 @@
 ﻿services:
   api:
-    image: gabrielfavar0/bank:v1.2.0
+    image: gabrielfavar0/bank:v1.2.2
     build:
       context: .
       dockerfile: Dockerfile

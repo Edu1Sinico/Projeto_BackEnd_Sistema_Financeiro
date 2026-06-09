@@ -28,8 +28,11 @@ builder.Services.Configure<SecuritySettings>(
 );
 
 builder.Services.AddOpenApi();
-builder.Services.AddControllers().AddJsonOptions(
-    options => options.JsonSerializerOptions.Converters.Add(new JsonDateConverter()));
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new JsonDateConverter());
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+});
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
@@ -111,7 +114,7 @@ using (var scope = app.Services.CreateScope())
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseDeveloperExceptionPage();
     app.MapOpenApi();
     app.MapScalarApiReference(options =>
     {
