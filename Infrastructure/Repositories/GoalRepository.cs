@@ -8,7 +8,7 @@ namespace Infrastructure.Repositories;
 public class GoalRepository(Context context) : IGoalRepository
 {
     public Task<Goal?> GetGoalAsync(int goalId) => context.Goals.FindAsync(goalId).AsTask();
-    public Task<List<Goal>> GetGoalsAsync(int userId) => context.Goals.Where(g => g.userId == userId).ToListAsync();
+    public Task<List<Goal>> GetGoalsAsync(int userId, int page, int quantity) => context.Goals.Where(g => g.userId == userId).Skip((page - 1)*quantity).Take(quantity).ToListAsync();
 
     public async Task CreateGoalAsync(Goal goal)
     {

@@ -8,7 +8,7 @@ namespace Infrastructure.Repositories;
 public class CategoryRepository(Context context) : ICategoryRepository
 {
     public Task<Category?> GetCategoryAsync(int id) => context.Categories.FindAsync(id).AsTask();
-    public Task<List<Category>> GetCategoriesAsync(int userId) => context.Categories.Where(c => c.userId == userId).ToListAsync();
+    public Task<List<Category>> GetCategoriesAsync(int userId, int page, int quantity) => context.Categories.Where(c => c.userId == userId).Skip((page - 1)*quantity).Take(quantity).ToListAsync();
     public Task<bool> ExistsByNameAndTypeAsync(int userId, string name, TransactionType type, int? ignoredId = null) =>
         context.Categories.AnyAsync(c => c.userId == userId && c.name.ToLower() == name.ToLower() && c.type == type && (!ignoredId.HasValue || c.id != ignoredId.Value));
     public Task<bool> IsCategoryInUseAsync(int categoryId) => context.Transactions.AnyAsync(t => t.categoryId == categoryId);

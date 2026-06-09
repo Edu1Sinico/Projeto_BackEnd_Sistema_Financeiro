@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Application.DTOs;
 using Application.UseCases.CategoryServices;
 using Microsoft.AspNetCore.Authorization;
@@ -29,11 +31,13 @@ public class CategoryController(createCategory createCategory, getCategory getCa
 
     [HttpGet]
     [Authorize]
-    public async Task<IActionResult> List([FromQuery] int userId)
+    public async Task<IActionResult> List([FromQuery] int userId,
+        [FromQuery][Range(1,int.MaxValue)][DefaultValue(1)] int page, 
+        [FromQuery][Range(1,100)][DefaultValue(10)] int quantity )
     {
         var authenticatedUserId = CurrentUser.GetId(this);
         if (authenticatedUserId == null) return Unauthorized();
-        return HttpResponseMapper.createResponse(await getCategories.getMany(userId, authenticatedUserId.Value), this);
+        return HttpResponseMapper.createResponse(await getCategories.getMany(userId, authenticatedUserId.Value,page,quantity), this);
     }
 
     [HttpPut("{id:int}")]

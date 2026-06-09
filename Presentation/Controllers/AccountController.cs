@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Application.DTOs;
 using Application.UseCases.AccountServices;
 using Microsoft.AspNetCore.Authorization;
@@ -31,11 +33,13 @@ public class AccountController(createAccount createAccount, getAccount getAccoun
 
     [HttpGet]
     [Authorize]
-    public async Task<IActionResult> List([FromQuery] int userId)
+    public async Task<IActionResult> List([FromQuery] int userId,
+        [FromQuery][Range(1,int.MaxValue)][DefaultValue(1)] int page, 
+        [FromQuery][Range(1,100)][DefaultValue(10)] int quantity)
     {
         var authenticatedUserId = CurrentUser.GetId(this);
         if (authenticatedUserId == null) return Unauthorized();
-        return HttpResponseMapper.createResponse(await getAccounts.getMany(userId, authenticatedUserId.Value), this);
+        return HttpResponseMapper.createResponse(await getAccounts.getMany(userId, authenticatedUserId.Value,page,quantity), this);
     }
 
     [HttpPut("{id:int}")]
