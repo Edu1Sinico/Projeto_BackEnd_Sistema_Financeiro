@@ -1,7 +1,9 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using Application.Interfaces;
 using Application.UseCases.AccountServices;
+using Application.UseCases.CategoryServices;
 using Application.UseCases.GoalServices;
 using Application.UseCases.TransactionServices;
 using Application.UseCases.UserServices;
@@ -25,7 +27,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IGoalRepository, GoalRepository>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
-
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IHashingService, HashingServices>();
 
 builder.Services.AddScoped<createUser>();
 builder.Services.AddScoped<getUser>();
@@ -36,6 +39,9 @@ builder.Services.AddScoped<deleteUser>();
 builder.Services.AddScoped<createAccount>();
 builder.Services.AddScoped<updateAccount>();
 builder.Services.AddScoped<deleteAccount>();
+builder.Services.AddScoped<getAccount>();
+builder.Services.AddScoped<getAccounts>();
+
 
 
 builder.Services.AddScoped<createGoal>();
@@ -49,6 +55,18 @@ builder.Services.AddScoped<createTransaction>();
 builder.Services.AddScoped<getTransaction>();
 builder.Services.AddScoped<getTransactionByDate>();
 builder.Services.AddScoped<getTransactionsByTimePeriod>();
+builder.Services.AddScoped<deleteTransaction>();
+builder.Services.AddScoped<updateTransaction>();
+
+
+
+
+builder.Services.AddScoped<createCategory>();
+builder.Services.AddScoped<getCategory>();
+builder.Services.AddScoped<getCategories>();
+builder.Services.AddScoped<deleteCategory>();
+builder.Services.AddScoped<updateCategory>();
+
 
 
 builder.Services.AddScoped<TokenService>();
@@ -109,7 +127,12 @@ using (var scope = app.Services.CreateScope())
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.MapOpenApi(); 
+    
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "v1");
+    });
 }
 
 

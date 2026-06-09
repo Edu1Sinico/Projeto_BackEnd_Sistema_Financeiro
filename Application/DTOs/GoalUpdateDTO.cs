@@ -14,6 +14,9 @@ namespace Application.DTOs
 
     [Required]
     [Range(0, double.MaxValue)]
-    decimal currentAmount
+    decimal currentAmount,
+    
+    [Required]
+    DateOnly deadline
 );
 }

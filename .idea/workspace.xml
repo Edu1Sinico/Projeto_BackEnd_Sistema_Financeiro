@@ -10,9 +10,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3eabc57e-6d9f-4788-a636-3017d09c807b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Infrastructure/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/AuthController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="3eabc57e-6d9f-4788-a636-3017d09c807b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,12 +30,12 @@
     &quot;assignee&quot;: &quot;GabrielFavaroo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://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@github.com/Edu1Sinico/Projeto_BackEnd_Sistema_Financeiro.git&quot;,
-    &quot;accountId&quot;: &quot;b88a8b25-4637-43d7-93ff-158200103b89&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Edu1Sinico/Projeto_BackEnd_Sistema_Financeiro.git",
+    "accountId": "b88a8b25-4637-43d7-93ff-158200103b89"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Application/DTOs/UserCreateDTO.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Infrastructure/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -47,6 +45,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3EeT95t5iDWkvGdgt39MbOjTLXR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

@@ -881,7 +881,6 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "Domain": "1.0.0",
-          "Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "10.0.7"
         },
         "compile": {
@@ -894,6 +893,9 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.8"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -905,6 +907,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "Application": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.8",
           "Microsoft.AspNetCore.OpenApi": "10.0.7",
@@ -2979,6 +2982,7 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "Application >= 1.0.0",
+      "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.8",
       "Microsoft.AspNetCore.OpenApi >= 10.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.8",
@@ -2998,6 +3002,7 @@
       "outputPath": "/home/gabriel/RiderProjects/Bank/Presentation/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "/home/gabriel/RiderProjects/Bank/NuGet.Config",
         "/home/gabriel/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
@@ -3013,6 +3018,9 @@
           "projectReferences": {
             "/home/gabriel/RiderProjects/Bank/Application/Application.csproj": {
               "projectPath": "/home/gabriel/RiderProjects/Bank/Application/Application.csproj"
+            },
+            "/home/gabriel/RiderProjects/Bank/Infrastructure/Infrastructure.csproj": {
+              "projectPath": "/home/gabriel/RiderProjects/Bank/Infrastructure/Infrastructure.csproj"
             }
           }
         }

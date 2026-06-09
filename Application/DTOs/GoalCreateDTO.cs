@@ -18,6 +18,9 @@ namespace Application.DTOs
         
         [Required]
         [Range(1, int.MaxValue)]
-        int userId
+        int userId,
+        
+        [Required]
+        DateOnly deadline
     );
 }

@@ -21,6 +21,10 @@ namespace Application.DTOs
         
         [Required]
         [Range(1,int.MaxValue)]
-        int accountId
+        int accountId,
+        
+        [Required]
+        [Range(1,int.MaxValue)]
+        int categoryId
     );
 }

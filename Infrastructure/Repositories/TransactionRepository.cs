@@ -31,11 +31,5 @@ public class TransactionRepository(Context context) : ITransactionRepository
         await context.SaveChangesAsync();
     }
 
-    public async Task<List<Transaction>> GetTransactionsByTimePeriodAsync(int userId, DateOnly startDate,
-        DateOnly endDate)
-    {
-        return await context.Accounts.Where(a=> a.userId == userId)
-            .SelectMany(a => a.transactions
-                .Where(t => t.transactionDate >= startDate && t.transactionDate <=endDate)).ToListAsync();
-    }
+    
 }

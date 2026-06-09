@@ -34,3 +34,5 @@
 /home/gabriel/RiderProjects/Bank/Infrastructure/obj/Debug/net10.0/Infrastructure.pdb
 /home/gabriel/RiderProjects/Bank/Infrastructure/obj/Debug/net10.0/Infrastructure.genruntimeconfig.cache
 /home/gabriel/RiderProjects/Bank/Infrastructure/obj/Debug/net10.0/ref/Infrastructure.dll
+/home/gabriel/RiderProjects/Bank/Infrastructure/bin/Debug/net10.0/Application.dll
+/home/gabriel/RiderProjects/Bank/Infrastructure/bin/Debug/net10.0/Application.pdb

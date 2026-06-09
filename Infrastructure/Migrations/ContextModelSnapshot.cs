@@ -55,6 +55,36 @@ namespace Infrastructure.Migrations
                     b.ToTable("account");
                 });
 
+            modelBuilder.Entity("Domain.Models.Category", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.Property<int>("type")
+                        .HasColumnType("integer")
+                        .HasColumnName("type");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("integer")
+                        .HasColumnName("userId");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("userId", "name", "type")
+                        .IsUnique();
+
+                    b.ToTable("category");
+                });
+
             modelBuilder.Entity("Domain.Models.Goal", b =>
                 {
                     b.Property<int>("id")
@@ -64,9 +94,17 @@ namespace Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
+                    b.Property<bool>("completed")
+                        .HasColumnType("boolean")
+                        .HasColumnName("completed");
+
                     b.Property<decimal>("currentAmount")
                         .HasColumnType("numeric")
                         .HasColumnName("currentAmount");
+
+                    b.Property<DateOnly?>("deadline")
+                        .HasColumnType("date")
+                        .HasColumnName("deadline");
 
                     b.Property<string>("title")
                         .IsRequired()
@@ -105,9 +143,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("numeric")
                         .HasColumnName("amount");
 
-                    b.Property<int>("category")
+                    b.Property<int>("categoryId")
                         .HasColumnType("integer")
-                        .HasColumnName("category");
+                        .HasColumnName("categoryId");
 
                     b.Property<string>("description")
                         .IsRequired()
@@ -125,6 +163,8 @@ namespace Infrastructure.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("accountId");
+
+                    b.HasIndex("categoryId");
 
                     b.ToTable("transaction");
                 });
@@ -196,6 +236,17 @@ namespace Infrastructure.Migrations
                     b.Navigation("user");
                 });
 
+            modelBuilder.Entity("Domain.Models.Category", b =>
+                {
+                    b.HasOne("Domain.Models.User", "user")
+                        .WithMany("categories")
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
             modelBuilder.Entity("Domain.Models.Goal", b =>
                 {
                     b.HasOne("Domain.Models.User", "user")
@@ -215,7 +266,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Models.Category", "category")
+                        .WithMany("transactions")
+                        .HasForeignKey("categoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("account");
+
+                    b.Navigation("category");
                 });
 
             modelBuilder.Entity("Domain.Models.TransactionGoal", b =>
@@ -242,6 +301,11 @@ namespace Infrastructure.Migrations
                     b.Navigation("transactions");
                 });
 
+            modelBuilder.Entity("Domain.Models.Category", b =>
+                {
+                    b.Navigation("transactions");
+                });
+
             modelBuilder.Entity("Domain.Models.Goal", b =>
                 {
                     b.Navigation("transactionGoals");
@@ -255,6 +319,8 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Models.User", b =>
                 {
                     b.Navigation("accounts");
+
+                    b.Navigation("categories");
 
                     b.Navigation("goals");
                 });

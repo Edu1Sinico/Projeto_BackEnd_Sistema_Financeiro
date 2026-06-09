@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "covTMSceSXI=",
+  "dgSpecHash": "BbxZ8RKrNbo=",
   "success": true,
   "projectFilePath": "/home/gabriel/RiderProjects/Bank/Domain/Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/gabriel/.nuget/packages/microsoft.entityframeworkcore.abstractions/10.0.8/microsoft.entityframeworkcore.abstractions.10.0.8.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -6,8 +6,7 @@ namespace Infrastructure.Persistence;
 public class Context(DbContextOptions<Context> options) : DbContext(options)
 {
     
-    public Context(DbContextOptions<Context> options) : base(options){}
-
+    
     public DbSet<User> Users { get; set; }
     public DbSet<Account> Accounts { get; set; }
     public DbSet<Category> Categories { get; set; }

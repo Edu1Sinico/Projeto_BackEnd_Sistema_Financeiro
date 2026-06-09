@@ -14,6 +14,7 @@
         "outputPath": "/home/gabriel/RiderProjects/Bank/Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/home/gabriel/RiderProjects/Bank/NuGet.Config",
           "/home/gabriel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -29,9 +30,6 @@
             "projectReferences": {
               "/home/gabriel/RiderProjects/Bank/Domain/Domain.csproj": {
                 "projectPath": "/home/gabriel/RiderProjects/Bank/Domain/Domain.csproj"
-              },
-              "/home/gabriel/RiderProjects/Bank/Infrastructure/Infrastructure.csproj": {
-                "projectPath": "/home/gabriel/RiderProjects/Bank/Infrastructure/Infrastructure.csproj"
               }
             }
           }
@@ -361,6 +359,7 @@
         "outputPath": "/home/gabriel/RiderProjects/Bank/Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/home/gabriel/RiderProjects/Bank/NuGet.Config",
           "/home/gabriel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -391,6 +390,12 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -695,6 +700,7 @@
         "outputPath": "/home/gabriel/RiderProjects/Bank/Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/home/gabriel/RiderProjects/Bank/NuGet.Config",
           "/home/gabriel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -708,6 +714,9 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
+              "/home/gabriel/RiderProjects/Bank/Application/Application.csproj": {
+                "projectPath": "/home/gabriel/RiderProjects/Bank/Application/Application.csproj"
+              },
               "/home/gabriel/RiderProjects/Bank/Domain/Domain.csproj": {
                 "projectPath": "/home/gabriel/RiderProjects/Bank/Domain/Domain.csproj"
               }
@@ -1057,6 +1066,7 @@
         "outputPath": "/home/gabriel/RiderProjects/Bank/Presentation/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/home/gabriel/RiderProjects/Bank/NuGet.Config",
           "/home/gabriel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -1072,6 +1082,9 @@
             "projectReferences": {
               "/home/gabriel/RiderProjects/Bank/Application/Application.csproj": {
                 "projectPath": "/home/gabriel/RiderProjects/Bank/Application/Application.csproj"
+              },
+              "/home/gabriel/RiderProjects/Bank/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/gabriel/RiderProjects/Bank/Infrastructure/Infrastructure.csproj"
               }
             }
           }
